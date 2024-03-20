@@ -18,7 +18,7 @@ app.use(
   session({
     secret: "secret",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { secure: false, sameSite: "none" }, //never do this in prod, however localhost has no https
   })
 );
@@ -91,7 +91,7 @@ app.get("/session", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  req.logout();
+  req.logout(); //need to finish this , currently breaks when called
   res.json("Logged out successfully.");
 });
 
